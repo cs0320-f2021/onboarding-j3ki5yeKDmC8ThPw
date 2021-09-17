@@ -28,4 +28,19 @@ public class MathBotTest {
   }
 
   // TODO: add more unit tests of your own
+
+  @Test
+  public void testNegativeNumbers() {
+    MathBot matherator9003 = new MathBot();
+    double output1 = matherator9003.add(-1,-1);
+    double output2 = matherator9003.subtract(-1,-1);
+    assertEquals(-2,output1,0.01);
+    assertEquals(0,output2,0.01);
+  }
+
+  @Test
+  public void testErrors() {
+    MathBot matherator9004 = new MathBot();
+
+  }
 }

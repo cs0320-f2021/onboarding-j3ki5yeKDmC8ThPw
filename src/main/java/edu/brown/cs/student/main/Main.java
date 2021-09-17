@@ -68,15 +68,22 @@ public final class Main {
           input = input.trim();
           String[] arguments = input.split(" ");
           MathBot mathBot = new MathBot();
-          // System.out.println(arguments[0]);
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
-          if(arguments[0].equals("add")) {
-            System.out.println(mathBot.add(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
-          } else if(arguments[0].equals("subtract")) {
-            System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
-          } else {
-            System.out.println("invalid entries");
+          switch(arguments[0]) {
+            case "add":
+              System.out.println(mathBot.add(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
+              break;
+            case "subtract":
+              System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
+              break;
+            case "stars":
+              Star star = new Star(arguments[1]);
+              break;
+            case "naive_neighbors":
+              break;
+            default:
+              break;
           }
         } catch (Exception e) {
           // e.printStackTrace();
@@ -159,3 +166,14 @@ public final class Main {
     }
   }
 }
+
+// ORIGINAL PLAN
+
+//          if(arguments[0].equals("add")) {
+//                  System.out.println(mathBot.add(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
+//                  } else if(arguments[0].equals("subtract")) {
+//                  System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
+//                  }
+//                  else {
+//                  break;
+//                  }
