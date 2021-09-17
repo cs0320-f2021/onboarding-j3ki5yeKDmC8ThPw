@@ -26,6 +26,7 @@ import spark.template.freemarker.FreeMarkerEngine;
  */
 public final class Main {
 
+  Star _star;
   // use port 4567 by default when running server
   private static final int DEFAULT_PORT = 4567;
 
@@ -78,9 +79,14 @@ public final class Main {
               System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
               break;
             case "stars":
-              Star star = new Star(arguments[1]);
+              _star = new Star(arguments[1]);
               break;
             case "naive_neighbors":
+              if(arguments.length==5) {
+                _star.positionFinder(Integer.parseInt(arguments[1]));
+              } else {
+                _star.nameFinder(Integer.parseInt(arguments[1]));
+              }
               break;
             default:
               break;
