@@ -70,7 +70,6 @@ public class Star {
         }
         System.out.println(_properName);
     }
-
 }
 
 // https://stackoverflow.com/questions/15452429/java-arrays-sort-2d-array
