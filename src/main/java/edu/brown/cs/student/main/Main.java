@@ -83,9 +83,10 @@ public final class Main {
               break;
             case "naive_neighbors":
               if(arguments.length==5) {
-                _star.positionFinder(Integer.parseInt(arguments[1]));
+                _star.positionFinder(Integer.parseInt(arguments[1]), Integer.parseInt(arguments[2]),
+                                      Integer.parseInt(arguments[3]), Integer.parseInt(arguments[4]));
               } else {
-                _star.nameFinder(Integer.parseInt(arguments[1]));
+                _star.nameFinder(Integer.parseInt(arguments[1]), arguments[2]);
               }
               break;
             default:
@@ -172,14 +173,3 @@ public final class Main {
     }
   }
 }
-
-// ORIGINAL PLAN
-
-//          if(arguments[0].equals("add")) {
-//                  System.out.println(mathBot.add(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
-//                  } else if(arguments[0].equals("subtract")) {
-//                  System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
-//                  }
-//                  else {
-//                  break;
-//                  }
