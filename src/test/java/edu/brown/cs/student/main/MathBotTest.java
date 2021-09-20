@@ -29,6 +29,10 @@ public class MathBotTest {
 
   // TODO: add more unit tests of your own
 
+  /**
+   * Method tests to see how two negative numbers are handled for each
+   * add and subtract function
+   */
   @Test
   public void testNegativeNumbers() {
     MathBot matherator9003 = new MathBot();
@@ -38,9 +42,17 @@ public class MathBotTest {
     assertEquals(0,output2,0.01);
   }
 
+  /**
+   * Method tests to see how decimals less than one are handled when
+   * added or subtracted from each other
+   */
   @Test
-  public void testErrors() {
+  public void testDecimals() {
     MathBot matherator9004 = new MathBot();
+    double output1 = matherator9004.add(0.1,0.1);
+    double output2 = matherator9004.subtract(0.5,0.5);
+    assertEquals(0.2,output1,0.01);
+    assertEquals(0,output2,0.01);
 
   }
 }

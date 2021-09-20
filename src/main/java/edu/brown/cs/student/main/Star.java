@@ -108,4 +108,5 @@ public class Star {
     }
 }
 
-// https://stackoverflow.com/questions/15452429/java-arrays-sort-2d-array
+// Used to sort 2D array: https://stackoverflow.com/questions/15452429/java-arrays-sort-2d-array
+// Used to read CSV: https://www.baeldung.com/java-csv-file-array

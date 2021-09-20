@@ -1,0 +1,8 @@
+ARGS
+
+INPUT
+stars /Desktop/cs32/onboarding-j3ki5yeKDmC8ThPw/data/stars/one-star.csv
+OUTPUT
+Read 1 star and put csv information into array lists
+
+END
