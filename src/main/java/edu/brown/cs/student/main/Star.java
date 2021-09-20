@@ -10,13 +10,18 @@ import java.util.Comparator;
 
 public class Star {
 
+    // array lists hold each column of the csv separately
     ArrayList<String> _starID;
     ArrayList<String> _properName;
     ArrayList<Double> _xList;
     ArrayList<Double> _yList;
     ArrayList<Double> _zList;
-    ArrayList<Double> _distances;
 
+    /**
+     * Method is responsible for instantiating all of the array lists and
+     * passing the file path to the load data method
+     * @param file
+     */
     public Star(String file) {
         _starID = new ArrayList<>();
         _properName = new ArrayList<>();
@@ -26,6 +31,12 @@ public class Star {
         this.loadData(file);
     }
 
+    /**
+     * Method responsible for adding each entry of the csv file to the appropriate
+     * array list. All of the star IDs, proper names, x coordinates, y coordinates,
+     * and z coordinates will be separated and added to their respective array lists.
+     * @param file
+     */
     public void loadData(String file) {
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -42,10 +53,24 @@ public class Star {
         }
     }
 
+    /**
+     * This method handles the case when the star coordinates are given
+     * and not the star name.
+     * @param k
+     * @param x
+     * @param y
+     * @param z
+     */
     public void positionFinder(int k, double x, double y, double z) {
         this.findDistances(k,x,y,z);
     }
 
+    /**
+     * This method handles the case when the star name is given but not the
+     * star coordinates.
+     * @param k
+     * @param starName
+     */
     public void nameFinder(int k, String starName) {
         int i = _properName.indexOf(starName);
         double x = _xList.get(i);
@@ -55,8 +80,19 @@ public class Star {
 
     }
 
+    /**
+     * This method is responsible for finding the distances between the star given
+     * and each of the stars in the csv. Once those distances are found, they're added
+     * to a separate 2D array of distances and corresponding index values. This is done
+     * so that when the 2D array is sorted, the index of the star is attached to it
+     * and can be easily accessed to find the names of the top 'k' number of closest stars
+     * @param k
+     * @param x
+     * @param y
+     * @param z
+     */
     public void findDistances(int k, double x, double y, double z) {
-        double[][] distanceArray = new double[_distances.size()][2];
+        double[][] distanceArray = new double[_xList.size()][2];
         double distance;
         String[] starList = new String[k];
         for(int i=0; i<_xList.size(); i++) {

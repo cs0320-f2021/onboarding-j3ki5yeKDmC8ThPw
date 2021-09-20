@@ -26,6 +26,7 @@ import spark.template.freemarker.FreeMarkerEngine;
  */
 public final class Main {
 
+  // star instance variable
   Star _star;
   // use port 4567 by default when running server
   private static final int DEFAULT_PORT = 4567;
@@ -45,6 +46,17 @@ public final class Main {
     this.args = args;
   }
 
+  /**
+   * This method contains a switch statement that will execute different functions
+   * depending on what the first word of the line entered into the terminal is. If
+   * it is "add" this method will add the following two numbers. If it's subtract,
+   * this method will subtract the second number from the first. If the first word
+   * is "stars", the method will create an instance of a new star and pass through
+   * a file path for a csv file that will get read and have its information parsed
+   * into various array lists. If "naive_neighbors" is the first word entered, there's
+   * a check that's run to see what the length of the input is, which determines
+   * whether the star name was given or star coordinates.
+   */
   private void run() {
     // set up parsing of command line flags
     OptionParser parser = new OptionParser();
@@ -78,14 +90,14 @@ public final class Main {
             case "subtract":
               System.out.println(mathBot.subtract(Double.parseDouble(arguments[2]),Double.parseDouble(arguments[1])));
               break;
-            case "stars":
+            case "stars":     // loads the data
               _star = new Star(arguments[1]);
               break;
             case "naive_neighbors":
-              if(arguments.length==5) {
+              if(arguments.length==5) {   // Star coordinates provided
                 _star.positionFinder(Integer.parseInt(arguments[1]), Integer.parseInt(arguments[2]),
                                       Integer.parseInt(arguments[3]), Integer.parseInt(arguments[4]));
-              } else {
+              } else {    // Star name provided
                 _star.nameFinder(Integer.parseInt(arguments[1]), arguments[2]);
               }
               break;
